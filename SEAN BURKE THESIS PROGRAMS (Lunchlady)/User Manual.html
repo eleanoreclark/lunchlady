@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+	<title>Renn Lab Lunchlady Manual</title>
+	<style>
+		body {background-color:linen; font-family:verdana;}
+		h1 {color:black; font-family:verdana; font-size:26px; text-align:center; text-decoration: underline;}
+		h2 {color:black; font-family:verdana; font-size:20px}
+		h3 {color:black; font-family:verdana; font-size:18px}
+		p {color:black; font-family:verdana; font-size:15px}
+	</style>
+
+</head>
+
+<body alink="dodgerblue" vlink="dodgerblue">
+
+<center>
+<h1>Contents</h1>
+<!--<h2><a href="#intro">Introduction</a></h2>
+<br><a href="#feederanat">Anatomy of the feeder</a>
+<br><a href="#codeanat">Anatomy of the code</a>
+<br><a href="#credits">Credits and contact information</a>
+</p>-->
+
+<h2><a href="#help">Help</a></h2>
+<p><a href="#wtf">What is Lunchlady and how do I use it???</a>
+<br><a href="#whichedition">Which edition and version of Lunchlady should I use?</a>
+<br><a href="#howdoiupload">How do I upload to the feeder? (How do I open a specific version of Lunchlady?)</a>
+<br><a href="#howdoiautorecord">How do I auto-record Lunchlady data with PuTTY?</a>
+<br><a href="#howdoimanual">How do I manually record Lunchlady data?</a>
+<!--<br><a href="#howdoigsheets">How do I open auto-recorded Lunchlady data?</a>-->
+<br><a href="#howdoiread">How do I interpret Lunchlady data that was auto-recorded with PuTTY?</a>
+</p>
+
+<h2><a href="#troubleshooting">Troubleshooting</a></h2>
+<p><a href="#junkdata">Why is my first trial several dozen times longer than the others?</a>
+<br><a href="#staticseconds">The trial length is always the same number!</a>
+<br><a href="#error">Why is there an ERROR for the first row of every session?</a>
+<br><a href="#whyneg">Why are some of my measurements -1?</a>
+</p>
+
+<!-- <h2><a href="#diy">A list of things you can easily change on your own</a></h2>
+<p><a href="#changetriallength">Change trial lengths</a>
+</p> -->
+</center>
+
+<br>
+<br>
+
+<h2>If you feel lost:</h2>
+
+<p>Hi, and welcome to the Lunchlady Renn Lab project! The first thing I want to say is that using this machine isn't very difficult, even if it looks complicated. Working with computers is like working with toddlers: it can be annoying, confusing, and mind-numbingly stupid sometimes, but all-in-all they're not too threatening once you get used to them. If you've never done anything like it before you'll probably feel pretty lost, but if instinct didn't prevent you from doing anything disastrous, I'd be shocked. So long as you don't put the circuitboard underwater or delete random files, you will never mess up in a way that nobody can fix.</p>
+<p>You will be working with a physical machine generally known as an <b>Arduino robot,</b> meaning that its circuitboard was bought from the Arduino company and its code was written in the Arduino language. In this manual, we call this physical robot <b>the feeder.</b></p>
+<!--<p>PUT A DIAGRAM HERE</p>-->
+<p>The code, on the other hand, are the files we can upload to the feeder; each file is a set of instructions that tells the feeder what to do. We use the program Arduino to upload code. I like to call the code as a whole <b>Lunchlady.</b> There are, however, way too many different versions of Lunchlady, and they all do different things. I've tried to name the folders as informatively as possible so that it doesn't get confusing, and I've written about the main concept of each edition in a lower section.</p>
+<p>Lunchlady was written by Eleanore Clark with assistance from Tamara O'Malley. The circuitry was planned and assembled by Monica Gray. The feeder was modified, and its supports were constructed, by Jay Ewing. This manual was written by Eleanore Clark. Contact me at eleanoreclarkpdx@gmail.com.</p>
+<br>
+
+<h1 id="help">Help</h1>
+
+<h2 id="wtf">What is Lunchlady and how do I use it???</h2>
+<p>Lunchlady is a program written in Arduino that feeds fish, like a school lunch-lady, except if lunch-ladies fed fish instead of people. Lunchlady is the software (the code); the physical machine is only referred to as "the feeder."</p>
+<p>To use it, follow these steps:
+<br>First, choose a version of Lunchlady to use. If you're not sure which one to use, <a href="#whichedition">read this.</a> Hopefully it helps. If not, ask someone who's been on the project for longer than you and let me(Eleanore) know that my user manual sucks.
+<br>Then, upload your chosen version. If you're not sure how to do that, <a href="#howdoiupload">read this.</a>
+<br>Then, you must start recording data. How you do this will depend on whether you are working with a <a href="#howdoimanual">manually-recording version</a> or an <a href="#howdoiautorecord">auto-recording version.</a>
+<br>After you have your data, you can then stop dealing with Lunchlady and move on to the exciting world of analysis!
+</p>
+<br>
+
+<h2 id="whichedition">Which edition and version of Lunchlady should I use?</h2>
+
+<p>Well, that depends on what you're doing!</p>
+<p>In the main "SEAN BURKE THESIS PROGRAMS (Lunchlady)" folder, there are 3 subfolders: Lunchlady edition 1, Lunchlady edition 2, and Lunchlady edition 3. Each edition of Lunchlady does a different thing, and each have a couple different versions (variations on the same basic idea).</p>
+<p>Editions 1 and 2 each have versions with "false trials," and versions without. A <b>"false trial"</b> is a trial where the green light shines until the fish approaches the feeder, but no food is dispensed and the white light does not flash. In most programs, this has a 1/5 chance of happening, but I(Eleanore) can change that easily if you want.</p>
+<p>All editions have auto-recording versions. These versions use the software PuTTY to record their data into a csv spreadsheet that can be opened with MS Excel or Google Sheets. While manually-recording versions can be opened through Arduino, <b>auto-recording versions of Lunchlady must be opened with the software PuTTY in order to auto-record.</b>
+ See<a href="#howdoiautorecord"> How do I auto-record Lunchlady data with PuTTY?</a> and <a href="#howdoigsheets">How do I open a spreadsheet made by PuTTY if I don't have Excel on my computer?</a></p>
+<p>Hopefully, all the subfolders containing the individual versions have detailed enough names that they don't need to be defined here. If not, let me(Eleanore) know.</p>
+
+
+<h3>Edition 3</h3>
+<p>The "Lunchlady edition 3" folder contains programs wherein, to be fed, the fish must go through the gate, approach the feeder, and then swim back through the gate to begin the next trial.</p>
+<p>If you are using an auto-recording version of edition 3, PuTTY will only record the last enter time and the first exit time. So, if the fish goes into the feeding area(1), goes back out(2), goes back in(3), gets food(4), goes back out(5), goes back in(6), and goes back out(7), only steps 3, 4, and 5 of that process will be recorded.</p>
+
+<p>EDITION 3 SEQUENCE OF ACTIONS:
+<br>-Start the trial; turn on the green light and begin timing.
+<br>-Wait for the fish to go through the gate; record the time when it does.
+<br>-Wait for the fish to approach the feeder; record the time when it does.
+<br>-Turn off the green light; flash the white light; dispense food.
+<br>-Wait for the fish to go back through the gate; record the time when it does.
+<br>-Restart.</p>
+
+
+<h3>Edition 2</h3>
+<p>The folder "Lunchlady edition 2" contains programs wherein, to be fed, the fish must approach the feeder. There is no gate in this version of the code.</p>
+<p>This edition is recommended for late-stage conditioning.</p>
+<p>[Note that recent, non-auto-recording versions of this edition will have a little delay between tripping the sensor and dispensing food/reporting data/flashing the white light. This is A-OK; Lunchlady is still recording the correct sensor times, it just takes a little longer to report them.]</p>
+
+<p>EDITION 2 SEQUENCE OF ACTIONS:
+<br>-Start the trial; turn on the green light and begin timing.
+<br>-Wait for the fish to approach the feeder; report the time when it does.
+<br>-Turn off the green light; flash the white light; dispense food.
+<br>-Restart.</p>
+
+
+<h3>Edition 1</h3>
+<p>The folder "Lunchlady edition 1" contains a program wherein the fish are always fed at the start of every trial regardless of whether or not they have approached the feeder.</p>
+<p>This edition is recommended for early-stage conditioning.</p>
+
+<p>EDITION 1 SEQUENCE OF ACTIONS:
+<br>-Start the trial; turn on the green light for 8 seconds and begin timing.
+<br>-Turn off the green light; flash the white light; dispense food.
+<br>-Report the time if/when the fish approaches the feeder.
+<br>-Restart.</p>
+
+<br>
+
+
+<h2 id="howdoiupload">How do I upload a version of Lunchlady to the feeder?</h2>
+<p>In order to run the correct version of Lunchlady, the feeder needs to actually <i>have</i> the correct version of Lunchlady in its memory. It can only have one version in its memory at a time, so whenever you want to use a different version of Lunchlady, you will have to upload it.</p>
+<p>(You can never be totally sure which version of Lunchlady was last run, so I would recommend uploading the version you want, before you use it, every single time you use the feeder.)</p>
+<p>To upload a version of Lunchlady, first, open the folder "SEAN BURKE THESIS PROGRAMS (Lunchlady)" on the desktop. Navigate to your desired version of Lunchlady. The folder names, along with <a href="#whichedition">the list of editions and what they do,</a> should help you find the version you're looking for.</p>
+<p>Double-click on the version (eg v2.2.0.ino, v3.5.1.ino) to open it in Arduino. It will take a little while to start up. Ensure that a USB cable is plugged in to the feeder, and that the other end of the USB cable is plugged in to the computer's <b>right-hand USB port,</b> like so:</p>
+<img src="https://i.imgur.com/Mym6LuT.jpg">
+<p>Find the circular arrow button in the top-left corner of the code's window. This is the upload button.</p>
+<img src="https://i.imgur.com/QAW769Z.png">
+<p>Click the upload button, and a green loading bar will appear in the lower right. Wait until the bar disappears.</p>
+<p>You have uploaded Lunchlady to the feeder! It will turn on automatically, which is slightly unfortunate but out of our control. If it's an auto-recording version, <a href="#howdoiautorecord">click here for a guide on how to make Lunchlady auto-record.</a> If it's a manual version, <a href="#howdoimanual">click here to learn how to open the Serial Monitor.</a></p>
+
+<br>
+
+<h2 id="howdoiautorecord">How do I use PuTTY to auto-record data?</h2>
+<p><i>As of 06/27/2018, the auto-recording versions are 1.1.0, 1.1.1, 2.2.0, 2.2.1, and 3.6.1. (3.5.1 auto-records but it is not practically useful.) All versions that auto-record say so in the title of their folder.</i></p>
+<p>Before you start, make sure the version of Lunchlady you want is currently uploaded to the feeder (See <a href="#howdoiupload">How do I upload code to the feeder?</a>). After uploading the code, Lunchlady will start running. <b>At this point, Lunchlady is not recording data. Do not start your experiment at this point.</b> You must re-open the program with PuTTY first.</p>
+<p>Find and open PuTTY. There should be a shortcut on the desktop. (If you can't find it, you can always use the Windows search bar next to the Windows icon in the bottom-left corner of your screen. Just type in "PuTTY" and it will come up.)</p>
+<img src="https://i.imgur.com/lXlAlIq.png">
+<p>Jeez, what do you even need all these settings for? Thankfully, we won't need to mess with most of them.</p>
+<p>Look at the large box in the middle of the window with the "Load," "Save," and "Delete" buttons next to it. This box has all the settings for all the versions of Lunchlady. We need to select the correct settings so that PuTTY will record data in the right spreadsheet. If you select the wrong settings, data will be recorded into the wrong spreadsheet.</p>
+<p>Select the settings that correspond to the version of Lunchlady you're running. (For example, if you are using version v3.6.1, select "Settings for 3.6.1 (no false trials)." If you're running v1.1.1, select "Settings for 1.1.1 (false trials)." Ignore the testSessions and "Default Settings.")</p>
+<p>Before we press the "Open" button and let PuTTY start recording data, we should make sure the feeder isn't in the middle of a trial. If we open PuTTY while the feeder is busy, it may wind up recording some junk data to our spreadsheet. Mostly harmless, but pretty annoying. To make sure the feeder isn't in the middle of something, we need to turn it off temporarily. Find the small white RESET button on the blue-green board of the feeder...</p>
+<img src="https://i.imgur.com/Iijjhw9.jpg" id="resetbutton">
+<p>...and hold it down. After about 4 seconds, press the "Open" button in the bottom right corner of PuTTY. Release the white RESET button.</p>
+<p>PuTTY will have opened this window:</p>
+<img src="https://i.imgur.com/T1g2RRo.png">
+<p>If the window has any text in it aside from a green rectangle (filled in or not filled in), the feeder was still busy when you started PuTTY. The first element in the first row of data will come out a little funky. <a href="#junkdata">Why is my first trial several dozen times longer than the others?</a></p>
+<p>The feeder will now run and record data on its own. We are free to leave it unsupervised and go about our business.</p>
+<p>When you want to stop recording data, close the black PuTTY window by clicking the X in the upper right hand corner. Press yes when it asks you if you're sure. Your data should be safe and sound in one of these files (the one corresponding to the Lunchlady version you used). They are located in the main THESIS PROGRAMS folder.</p>
+<img src="https://i.imgur.com/iTUSQL7.png">
+<p>If you're not sure how to access this data, see <a href="#howdoigsheets">How do I access PuTTY-made Lunchlady data without Excel?</a></p>
+<br>
+
+<h2 id="howdoimanual">How do I manually record Lunchlady data?</h2>
+<p><i>As of 06/27/2018, the non-auto-recording versions are 1.0.0, 1.0.1, 2.1.0, 2.1.1, and 3.6.0. All versions that do not auto-record say so in the title of their folder.</i></p>
+<p>By default, Arduino programs like Lunchlady print their data to the Serial Monitor. During, or immediately after, <a href="#howdoiupload">uploading the code,</a> open the Serial Monitor by clicking the magnifying-glass button in the upper right portion of the window.</p>
+<img src="https://i.imgur.com/DI0kMH7.png">
+<p>After a moment, Lunchlady will begin to print its data to the screen. At that point, you may easily write it down.</p>
+<br>
+
+<!--<h2 id="howdoigsheets">How do I open PuTTY-generated Lunchlady files?</h2>
+<p>I haven't written this section yet.</p>
+<br>-->
+
+<h2 id="howdoiread">How do I interpret Lunchlady data recorded with PuTTY?</h2>
+<p>At the beginning of every session, PuTTY will print a header that includes the current date and time. This header confuses some spreadsheet programs, <a href="#error">but that can be fixed.</a></p>
+<p>Any value that was not recorded will print as -1. So, for example, say you're running 3.6.1; your fish entered and exited, but never approached the feeding sensor. In that case, your data will look like this:</p>
+<img src="https://i.imgur.com/7NeYQMz.png">
+<p>So, values that are -1 were just never recorded. (However, if the value for "exited at" or "entered at" is -1, all other values except for cycle length should also be -1. If this is not the case, contact Eleanore.)</p>
+
+
+<br>
+
+
+<h1 id="troubleshooting">Troubleshooting</h1>
+
+<p>Before you do anything, check that these things are true:
+<br>-You have <a href="https://images-na.ssl-images-amazon.com/images/I/41vEepf9StL._SL500_AC_SS350_.jpg" target="_blank">a USB-A to USB-B cord.</a> The cord is <a href="#usb">plugged in to the feeder on the USB-B side, and plugged in to the computer's right-hand USB port on the USB-A side.</a>
+<br>-<a href="#powercord">The power cord is plugged in to the wall on one end, and the feeder on the other.</a>
+<br>-If using edition 3, the laser gate is clean and has been wiped down recently.
+</p>
+<br>
+
+<h2 id="junkdata">Why is my first trial several dozen times longer than the others?</h2>
+<p>Sometimes, if you open PuTTY or the Serial Monitor while the feeder is in the middle of a trial, the feeder will put whatever it's thinking about at the start your data. Usually, Lunchlady will just print your data right after that. Since csv sheets are just values seperated by commas, the irrelevant number printed by the feeder will get mixed in with the first value in Lunchlady's data list, and it will look like one long number.</p>
+<p>Once this has happened, you can't really determine how long the trial <i>really</i> was without just guessing. Thankfully, though, trial length isn't usually terribly important.</p>
+<p>To prevent this, hold down the <a href="#resetbutton">RESET button</a> on the feeder for four seconds before you open PuTTY or the Serial Monitor, and only release the button once PuTTY/the Monitor is open.</p> 
+<br>
+
+<h2 id="staticseconds">The trial length is always 30 or 150 instead of a random number!</h2>
+<p>Sometimes Eleanore does that for testing and forgets to change it. The fix entails editing the code, but it shouldn't be too hard.</p>
+<img src="https://i.imgur.com/h0s9FbK.png">
+<p>First, find these lines. They may not look exactly like this; the slashes may be in slightly different places.</p>
+<p>(To find them easily, you can press ctrl+f and type "randNumber = random" into the box that appears, and then click the button that says "Find.")</p>
+<p> In order for the code to work, though, the second line needs to have two slashes in front of it, and the first line needs to have zero slashes in front of it. Essentially, make it look like this:</p>
+<img src="https://i.imgur.com/lz1jvKt.png">
+<!-- <p>(Explanation: the computer will ignore any code with two slashes in front of it. We want it to ignore the code that tells it to set its trial length to 30/150, and pay attention to the code that tells it to set its trial length to something random between 300 and 1000, or whatever random interval you want. Thus, we put slashes in front of the second line and remove any slashes from the first.)</p> --!>
+<p>If the code already looked like this, we may have a real problem on our hands. Let Eleanore know ASAP. Otherwise, the code is fixed! That's the only thing that needed to change. Now to upload it. <a href="#howdoiupload">How do I upload a version of Lunchlady to the feeder?</a></p>
+<br>
+
+<h2 id="error">Why is there an ERROR for the first row of every session?</h2>
+<p>PuTTY will print a header that includes the date and time every single time it starts up. Google Sheets in particular finds this <i>very</i> confusing.</p>
+<p>To limit Google Sheets's confusion, you need to tell it exactly what punctuation Lunchlady uses to separate its data. You have the opportunity to do this when importing a file. When this menu pops up, make sure to change the "Separator Type" to "comma."</p>
+<img src="https://i.imgur.com/QYoi1I4.png">
+<p>This should allow Google Sheets to read the PuTTY header correctly. Alternatively, if you don't need to know the date and time of your observations, you can just delete every ERROR row that shows up.</p>
+<p>However, if you have more than one ERROR row per session, that may be cause for concern. You can try to examine the ERRORs on your own by renaming the file from xyz.csv to xyz.txt and opening it in Notepad. If unsure, send Eleanore an email with the weird data.</p>
+<br>
+
+<h2 id="whyneg">Why are some of my measurements -1?</h2>
+<p>This is acually supposed to happen. See <a href="#howdoiread">How do I interpret Lunchlady data recorded with PuTTY?</a></p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>An Arduino computer won't read anything with two slashes in front of it. A line with two slashes in front of it is called a "comment." Computers are like dumb babies, and commenting out a line is like playing peek-a-boo. Much like a baby will lose sight of you when you hide behind your hands, a computer won't be able to read anything when you hide it behind two slashes. Programmers use comments all the time.</p>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<img src="https://i.imgur.com/Mym6LuT.jpg" id="usb">
+<p><a href="#troubleshooting">(back to troubleshooting)</a></p>
+<br>
+<img src="https://i.imgur.com/fD71IIV.jpg" id="powercord">
+<p><a href="#troubleshooting">(back to troubleshooting)</a></p>
+<br>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+3.5 = gate is tripped when readings are high. this works when the widebeam sensor IS NOT being routed through the gate
+
+3.6 = gate is tripped when readings are low. this works when the widebeam sensor IS being routed through the gate
+
+
+putting the fiber-optics into the widebeam sensor reverses the readings, for some reason.
