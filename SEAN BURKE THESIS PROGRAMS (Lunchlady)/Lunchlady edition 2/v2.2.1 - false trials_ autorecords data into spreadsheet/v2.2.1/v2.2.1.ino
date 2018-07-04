@@ -94,6 +94,11 @@ void loop()
     delay(1000);                             //This waits 1 seconds so that a fish who is leaving the feeding area after waiting in there longer than the trial length won't immediately trigger the gate in the new trial
     
     start_time_secs = millis() / 1000.00;   //This records the uptime of the machine when the current loop was started. it needs to be saved as seconds to avoid overflow (i think? I'm taking precautions)
+
+    while (start_time_secs > 3600) {        //This is an awful way to do make the feeder stop running after an hour, but it works
+      Serial.println("1 hour has passed, and the feeder is idling until you restart the program.");
+      delay(3600000);
+    }
   
     randNumber = random(300, 1000);           //random(minimum seconds, maximum seconds)
     //randNumber = 30;

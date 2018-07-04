@@ -94,7 +94,8 @@ void loop()
     
     start_time_secs = millis() / 1000.00;   //This records the uptime of the machine when the current loop was started. it needs to be saved as seconds to avoid overflow (i think? I'm taking precautions)
 
-    while (start_time_secs > 3600) {        //This is an awful way to do this, but it works
+    while (start_time_secs > 3600) {        //This is an awful way to do make the feeder stop running after an hour, but it works
+      Serial.println("1 hour has passed, and the feeder is idling until you restart the program.");
       delay(3600000);
     }
 
